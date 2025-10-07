@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despliegue CI/CD Exitoso | Ángel Volquez</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.15); /* Fondo semitransparente */
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px); /* Efecto de cristal esmerilado */
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #e0f7fa; /* Un azul más claro */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-top: 5px;
+            margin-bottom: 30px;
+            color: #a7d9f2;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .info-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 25px;
+            display: inline-block; /* Para que el fondo se ajuste al texto */
+        }
+        .info-card strong {
+            color: #c6eef8;
+        }
+        .social-link {
+            display: inline-block;
+            margin: 20px 10px 0;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .social-link:hover {
+            transform: translateY(-5px);
+            color: #c6eef8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsiveness */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡CI/CD Exitoso!</h1>
+        <h2>Tu Proyecto Desplegado Automáticamente</h2>
+        <p>
+            Esta página web ha sido desplegada con éxito usando un pipeline de **Integración y Despliegue Continuo (CI/CD)**.
+            Cada cambio en el código se prueba y se publica de forma automática gracias a **GitHub Actions** y **Surge.sh**.
+        </p>
+        <div class="info-card">
+            <p>
+                <strong>Estudiante:</strong> Ángel Amilcar Volquez Rosario<br>
+                <strong>Matrícula:</strong> 2023-0965<br>
+                <strong>Curso:</strong> Electiva 2 - DevOps
+            </p>
+        </div>
+        <a href="https://github.com/angel15369" target="_blank" class="social-link">Ver Repositorio GitHub</a>
+    </div>
+</body>
+</html>
