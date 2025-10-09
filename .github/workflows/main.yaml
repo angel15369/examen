@@ -3,37 +3,32 @@
 name: Despliegue Automático a Surge.sh
 
 on:
-  # El workflow se activa en cada push a la rama principal
   push:
     branches:
-      - master
-  # Permite ejecutarlo manualmente desde la pestaña Actions
+      - master 
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    # Permiso mínimo necesario
     permissions:
       contents: read 
 
     steps:
-      # Paso 1: Obtiene tu código
       - name: Checkout del código
         uses: actions/checkout@v4
 
-      # Paso 2: Configura Node.js (necesario para usar npm y Surge)
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # Paso 3: Instala Surge.sh de forma global
       - name: Instalar Surge
         run: npm install -g surge
         
-      # Paso 4: Despliegue a Surge.sh usando los Secretos
       - name: Desplegar a Surge
-        # Usa los Secretos que creaste en la configuración de GitHub
-        run: surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} --login ${{ secrets.SURGE_LOGIN }}
+        env:
+          SURGE_LOGIN_VAR: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN_VAR: ${{ secrets.SURGE_TOKEN }}
+        run: surge . ${{ secrets.SURGE_DOMAIN }} --token $SURGE_TOKEN_VAR --login $SURGE_LOGIN_VAR
