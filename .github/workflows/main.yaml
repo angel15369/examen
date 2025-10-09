@@ -1,17 +1,14 @@
-# .github/workflows/main.yaml
-
 name: Despliegue Automático a Surge.sh
 
 on:
   push:
     branches:
-      - master 
+      - master
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read 
 
