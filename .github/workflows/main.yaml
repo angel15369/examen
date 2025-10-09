@@ -24,6 +24,7 @@ jobs:
       - name: Instalar Surge
         run: npm install -g surge
         
+      # PASO 4 CORREGIDO: Vuelve al despliegue en una sola línea, usando la sintaxis -e
       - name: Desplegar a Surge
-        run: |
-          surge . --token ${{ secrets.SURGE_TOKEN }} -d ${{ secrets.SURGE_DOMAIN }}
+        # Este es el comando completo y final: carpeta, dominio, token, email.
+        run: surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} -e ${{ secrets.SURGE_LOGIN }}
