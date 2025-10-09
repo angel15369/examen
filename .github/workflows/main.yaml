@@ -24,7 +24,11 @@ jobs:
       - name: Instalar Surge
         run: npm install -g surge
         
-      # PASO 4 CORREGIDO: Vuelve al despliegue en una sola línea, usando la sintaxis -e
+      # PASO 4 FINAL: Autenticación por variables de entorno (El método más robusto)
       - name: Desplegar a Surge
-        # Este es el comando completo y final: carpeta, dominio, token, email.
-        run: surge . ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }} -e ${{ secrets.SURGE_LOGIN }}
+        env:
+          # Surge lee estas variables automáticamente para la autenticación
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+        # Ejecutamos el despliegue simple. Surge usará las variables env de arriba.
+        run: surge . ${{ secrets.SURGE_DOMAIN }}
