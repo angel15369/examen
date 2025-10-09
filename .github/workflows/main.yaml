@@ -24,10 +24,6 @@ jobs:
       - name: Instalar Surge
         run: npm install -g surge
         
-      # PASO 4 CORREGIDO: Usamos '-e' en lugar de '--email'
-      - name: Autenticar y Desplegar a Surge
-        # El comando 'whoami' obliga a Surge a usar el token y el email.
-        # '-e' es la sintaxis más segura para el email/login.
+      - name: Desplegar a Surge
         run: |
-          surge whoami --token ${{ secrets.SURGE_TOKEN }} -e ${{ secrets.SURGE_LOGIN }}
-          surge . ${{ secrets.SURGE_DOMAIN }}
+          surge . --token ${{ secrets.SURGE_TOKEN }} -d ${{ secrets.SURGE_DOMAIN }}
